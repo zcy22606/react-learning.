@@ -1,0 +1,69 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-07 22:24:16
+ * @LastEditTime: 2021-08-07 22:43:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \React学习\02-JSX核心语法一\04-JSX中嵌入数据.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component{
+        constructor () {
+          super()
+          this.state = {
+            name: 'React',
+            time: 4646,
+            names:[1,2,3],
+            test1: null,
+            test2: false,
+            test3: undefined,
+            test4: new Date()
+          }
+        }
+        render () {
+          console.log( typeof this.state.test4)
+          return (
+            <div>
+              <h1>{this.state.test2 ? this.state.name : null}</h1>
+              <h2>{this.state.time}</h2>
+              <h3 onClick = {this.change.bind(this)}>{this.state.names}</h3>
+              {/* null, undefined, 布尔类型的值不能在 {} 中现实 */}
+              <h4>{this.state.test1}</h4>
+              <h4>{this.state.test2.toString()}</h4>
+              <h4>{String(this.state.test3)}</h4>
+              {/* 对象不能作为 JSX 的子类 */}
+              <h3>{this.state.test4 + ''}</h3>
+            </div>
+          )
+        }
+        change () {
+          this.setState({
+            test2: !this.state.test2
+          })
+        }
+      }
+      ReactDOM.render(<App/>, document.getElementById('app'))
+    </script>
+  </body>
+</html>

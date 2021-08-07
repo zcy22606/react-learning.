@@ -1,0 +1,52 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-07 22:44:23
+ * @LastEditTime: 2021-08-07 22:49:50
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \React学习\02-JSX核心语法一\05-JSX嵌入表达式.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super ()
+          this.state = {
+            title: 'React',
+            name: '周杰伦'
+          }
+        }
+        render(){
+          const {title, name} = this.state 
+          return (
+            <div>
+              <h1>{`欢迎学习${title}`}</h1>
+              <h2>{name}</h2>
+              </div>
+          )
+        }
+      }
+      ReactDOM.render(<App/>, document.getElementById('app'))
+    </script>
+  </body>
+</html>
