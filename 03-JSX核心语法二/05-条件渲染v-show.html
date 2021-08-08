@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-09 00:38:14
+ * @LastEditTime: 2021-08-09 00:45:07
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \React学习\03-JSX核心语法二\05-条件渲染v-show.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            title: 'hello world',
+            flag: true,
+          }
+        }
+        render() {
+          const { flag } = this.state
+          return (
+            <div>
+              <h1 style={{ display: flag ? 'block' : 'none' }}>
+                {this.state.title}
+              </h1>
+              <button
+                onClick={e => {
+                  this.setState({ flag: !flag })
+                }}
+              >
+                改变
+              </button>
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+  </body>
+</html>

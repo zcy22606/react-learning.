@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-08 23:19:43
+ * @LastEditTime: 2021-08-08 23:41:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \React学习\03-JSX核心语法二\02-JSX的事件绑定.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            title: 'hello world',
+          }
+          this.change3 = this.change3.bind(this)
+        }
+        render() {
+          return (
+            <div>
+              <h1>{this.state.title}</h1>
+              <button onClick={this.change.bind(this)}>打印</button>
+              <button onClick={this.change2}>打印2</button>
+              <button onClick={this.change3}>打印3</button>
+              <button
+                onClick={() => {
+                  this.change3()
+                }}
+              >
+                打印4
+              </button>
+            </div>
+          )
+        }
+        change() {
+          console.log(this.state.title)
+        }
+        change2 = () => {
+          console.log(this.state.title)
+        }
+        change3() {
+          console.log(this.state.title)
+        }
+        change3() {
+          console.log(this.state.title, event)
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+  </body>
+</html>

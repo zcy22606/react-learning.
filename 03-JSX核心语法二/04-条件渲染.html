@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-09 00:08:29
+ * @LastEditTime: 2021-08-09 00:16:11
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \React学习\03-JSX核心语法二\04-条件渲染.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            title: 'hello world',
+            flag: false,
+          }
+        }
+        render() {
+          const { flag } = this.state
+          let message = null
+          let text = null
+          if (flag) {
+            message = '欢迎回来'
+            text = '退出'
+          } else {
+            message = '请先登录'
+            text = '登录'
+          }
+          return (
+            <div>
+              <h1>{this.state.title}</h1>
+              <h2>{message}</h2>
+              <button onClick={e => this.change()}>{text}</button>
+              <h2>{flag ? '欢迎回来' : '请先登录'}</h2>
+              <button onClick={e => this.change()}>
+                {flag ? '退出' : '登录'}
+              </button>
+              <h2>{!flag && '你好 coderwhy'}</h2>
+            </div>
+          )
+        }
+        change() {
+          this.setState({
+            flag: !this.state.flag,
+          })
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+  </body>
+</html>
