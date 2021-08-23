@@ -1,8 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+/*
+ * @Author: your name
+ * @Date: 2021-08-23 22:23:30
+ * @LastEditTime: 2021-08-23 22:23:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \React学习\课堂\code\04_learn_component\src\index.js
+ */
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-// import App from './04_组件通信案例/App';
-// import './04_组件通信案例/style.css';
+import App from './04_组件通信案例/App'
+import './04_组件通信案例/style.css'
 
 // import App from './05_React实现slot/App';
 // import './05_React实现slot/style.css';
@@ -44,6 +52,6 @@ import ReactDOM from 'react-dom';
 // import App from './12_组件内容补充/02_portals的使用';
 // import "./css/index.css";
 // import App from './12_组件内容补充/03_fragments的使用';
-import App from './12_组件内容补充/04_strictMode的使用';
+// import App from './12_组件内容补充/04_strictMode的使用';
 
-ReactDOM.render(<App name="why"/>, document.getElementById('root'));
+ReactDOM.render(<App name="why" />, document.getElementById('root'))
